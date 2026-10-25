@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050a22">
+<meta name="description" content="Create a private UNO Party room and play a colorful multiplayer card game with friends.">
+<title>UNO PARTY — Play with friends</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="UNO Party home"><span class="logo-card">UNO</span><span>UNO PARTY</span></a>
+  <nav aria-label="Main navigation"><a class="active" href="#home">⌂ <span>Home</span></a><a href="#howto">▣ <span>How to Play</span></a><a href="#about">ⓘ <span>About</span></a></nav>
+</header>
+<main>
+<section id="lobby" class="lobby">
+  <div class="landing-hero" id="home">
+    <div class="hero-shade"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+    <div class="floating-card float-red" aria-hidden="true"><b>+2</b><span>1</span></div><div class="floating-card float-blue" aria-hidden="true"><b>1</b><span>↻</span></div><div class="floating-card float-green" aria-hidden="true"><b>⇄</b><span>↻</span></div><div class="floating-card float-wild" aria-hidden="true"><b>+4</b><span>✦</span></div>
+    <div class="hero-center"><div class="hero-crown">♛</div><div class="hero-logo">UNO</div><div class="hero-party">PARTY</div><h1>Play UNO with Friends</h1><p>Create a room, share the code and play together<br>with up to 10 players!</p>
+      <button id="createBtn" class="btn btn-purple btn-hero"><span>＋</span> Create Room</button>
+      <button id="heroJoinBtn" class="btn btn-blue btn-hero"><span>↪</span> Join Room</button>
+    </div>
+  </div>
+  <div class="entry-area">
+    <div class="entry-grid">
+      <div class="entry-card create-card"><div class="big-icon crown">♛</div><h2>Create a Room</h2><label for="playerName">PLAYER NAME</label><input id="playerName" maxlength="18" placeholder="Enter your name" autocomplete="nickname"><label for="maxPlayers">MAX PLAYERS</label><select id="maxPlayers"><option value="10">10 players</option><option value="8">8 players</option><option value="6">6 players</option><option value="4">4 players</option><option value="2">2 players</option></select>
+      <label for="winTarget">WIN CONDITION</label><select id="winTarget"><option value="single">Single round</option><option value="100">First to 100 points</option><option value="250">First to 250 points</option><option value="500" selected>First to 500 points</option></select>
+      <div class="rule-options"><label class="toggle-row"><input id="stacking" type="checkbox"><span>Allow draw stacking <small>House rule</small></span></label><label class="toggle-row"><input id="sevenZero" type="checkbox"><span>Enable 7–0 swaps <small>House rule</small></span></label><label class="toggle-row"><input id="jumpIn" type="checkbox"><span>Enable jump-in <small>House rule</small></span></label></div>
+      <button id="createRoomAlt" class="btn btn-purple btn-wide">Create Room</button></div>
+      <div class="or-bubble">OR</div>
+      <div class="entry-card join-card"><div class="big-icon people">♟</div><h2>Join a Room</h2><label for="joinPlayerName">YOUR PLAYER NAME</label><input id="joinPlayerName" maxlength="18" placeholder="Enter your name" autocomplete="nickname"><label for="roomCode">ROOM CODE</label><input id="roomCode" maxlength="6" placeholder="⌕  Enter 6-character code" autocomplete="off" spellcheck="false" aria-describedby="joinError"><p id="joinError" class="inline-error" role="alert"></p><button id="joinBtn" class="btn btn-blue btn-wide">Join Room</button></div>
+    </div>
+    <div class="feature-strip"><div class="feature"><span class="feature-icon purple">♟</span><div><b>Up to 10 Players</b><small>Play with your friends</small></div></div><div class="feature"><span class="feature-icon blue">🎮</span><div><b>Real-time Gameplay</b><small>Smooth and fast</small></div></div><div class="feature"><span class="feature-icon gold">🔒</span><div><b>Private Rooms</b><small>Play with your own code</small></div></div></div>
+    <p id="lobbyError" class="error-message" role="alert"></p>
+  </div>
+</section>
+
+<section id="room" class="room hidden">
+  <div class="section-top"><div><div class="eyebrow">PRIVATE GAME ROOM</div><h1>Game <span>lobby</span></h1><p>Invite your friends and get ready to play.</p></div><button id="leaveBtn" class="btn btn-outline">← Leave</button></div>
+  <div class="room-code-bar"><div><small>ROOM CODE</small><strong id="displayCode">------</strong></div><button id="copyCodeBtn" class="btn btn-outline">▣ Copy</button></div>
+  <div class="room-content"><div class="players-panel"><div class="panel-title"><h2>♛ <span id="roomTitle">Your Room</span></h2><span id="playerCount" class="count-badge">1 / 10</span></div><p class="host-sub">Host: <span id="hostName">Player</span></p><div id="playersList" class="players-grid"></div><div class="room-tip">💡 Share the room code with your friends so they can join.</div><div id="roomRules" class="room-rules"></div></div>
+    <div class="start-panel"><div class="start-cards"><i class="mini-red">7</i><i class="mini-blue">↻</i><i class="mini-wild">UNO</i></div><h2>Ready to deal?</h2><p id="startHint">Gather at least 2 players to start the game.</p><button id="startBtn" class="btn btn-green btn-wide">▶ Start Game</button><small>7 cards each · Match color or number · Last card wins</small></div></div>
+</section>
+
+<section id="game" class="game hidden">
+  <div class="game-header"><a class="brand" href="#"><span class="logo-card">UNO</span><span>UNO PARTY</span></a><div class="game-room">Room: <b id="gameCode">------</b> <button id="copyGameCode" aria-label="Copy room code">▢</button></div><div class="game-header-actions"><span id="turnPill" class="turn-pill">● Turn: You</span><button class="icon-button" id="soundBtn" aria-label="Toggle sound">◖))</button><button id="gameLeaveBtn" class="btn btn-danger">Leave</button></div></div>
+  <div class="game-layout">
+    <aside class="game-sidebar"><div class="sidebar-heading">PLAYERS <span id="gamePlayerCount">0/10</span></div><div id="gamePlayers" class="game-players"></div><div class="side-actions"><button id="unoBtn" class="btn btn-uno">UNO!</button><button id="catchUnoBtn" class="btn btn-outline btn-wide">⚑ Catch UNO</button><button id="challengeBtn" class="btn btn-outline btn-wide">⚑ Challenge +4</button><button id="acceptBtn" class="btn btn-outline btn-wide">Accept +4</button><button id="drawBtn" class="btn btn-outline btn-wide">＋ Draw a card</button><button id="passBtn" class="btn btn-outline btn-wide hidden">Pass turn</button></div></aside>
+    <div class="table-area"><div id="turnBanner" class="turn-banner">Waiting for game...</div><div class="table-felt"><div class="table-glow"></div><div class="center-piles"><div class="pile"><small>DRAW (<span id="drawCount">0</span>)</small><div class="draw-pile"><span>UNO</span></div></div><div class="pile"><small>DISCARD (<span id="discardCount">0</span>)</small><div id="topCard" class="uno-card top-card"><span>5</span></div><div class="current-color-label">CURRENT COLOR <i id="currentColorDot"></i><b id="currentColorText">—</b></div></div></div></div><div class="hand-heading"><div><h2>Your hand</h2><small id="handCount">0 cards</small></div><span>Tap a card to play it</span></div><div id="hand" class="hand"></div><div id="scoreBoard" class="score-board"></div><div id="gameMessage" class="game-message" aria-live="polite"></div></div>
+  </div>
+</section>
+<section id="howto" class="info-section"><h2>How to Play</h2><div class="info-grid"><article><b>01</b><h3>Create a room</h3><p>Choose your player name, create a private room and share its code.</p></article><article><b>02</b><h3>Join the table</h3><p>Your friends enter the same code. Up to 10 players can join.</p></article><article><b>03</b><h3>Play your cards</h3><p>Match the color or symbol, use wild cards, and call UNO when one card remains.</p></article></div></section>
+<section id="about" class="about-section"><b>UNO PARTY</b><span>A fan-made UNO-style multiplayer game for game nights.</span></section>
+</main>
+<div id="colorModal" class="modal hidden"><div class="modal-card"><div class="eyebrow">WILD CARD</div><h2>Choose a color</h2><p>Pick the color the next player must match.</p><div class="color-options"><button data-color="red" class="color-choice red" aria-label="Red"></button><button data-color="yellow" class="color-choice yellow" aria-label="Yellow"></button><button data-color="green" class="color-choice green" aria-label="Green"></button><button data-color="blue" class="color-choice blue" aria-label="Blue"></button></div></div></div>
+<div id="toast" class="toast" role="status"></div>
+<footer><b>UNO PARTY</b><span>Made for game nights ✦</span><span>Uno-style fan game · Not affiliated with Mattel</span></footer>
+<script src="/socket.io/socket.io.js"></script><script src="app.js"></script>
+</body></html>

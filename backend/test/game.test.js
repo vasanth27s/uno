@@ -1,0 +1,11 @@
+const assert=require('assert');
+const {createClassicDeck}=require('../src/game/deck');
+const {canPlay,canLegallyPlayWild4,points}=require('../src/game/rules');
+const d=createClassicDeck();
+assert.equal(d.length,108);assert.equal(d.filter(c=>c.value==='0').length,4);assert.equal(d.filter(c=>c.value==='wild').length,4);assert.equal(d.filter(c=>c.value==='wild4').length,4);
+assert(canPlay({color:'red',value:'4'},{color:'blue',value:'4'},'blue'));
+assert(!canPlay({color:'green',value:'2'},{color:'blue',value:'3'},'blue'));
+assert(canLegallyPlayWild4([{color:'red',value:'5'}],'blue'));
+assert(!canLegallyPlayWild4([{color:'blue',value:'5'}],'blue'));
+assert.equal(points({value:'reverse'}),20);assert.equal(points({value:'wild4'}),50);
+console.log('UNO rules smoke tests passed.');

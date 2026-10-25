@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#35105c"/><stop offset=".6" stop-color="#100b35"/><stop offset="1" stop-color="#030921"/></radialGradient>
+ <linearGradient id="red"><stop stop-color="#ff475f"/><stop offset="1" stop-color="#b80d34"/></linearGradient>
+ <linearGradient id="blue"><stop stop-color="#4ea4ff"/><stop offset="1" stop-color="#0750c9"/></linearGradient>
+ <linearGradient id="green"><stop stop-color="#54ed9b"/><stop offset="1" stop-color="#087c4d"/></linearGradient>
+ <linearGradient id="yellow"><stop stop-color="#fff176"/><stop offset="1" stop-color="#dca700"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="22"/></filter>
+ <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".65"/></filter>
+</defs>
+<rect width="1600" height="1200" fill="url(#bg)"/>
+<g opacity=".5" filter="url(#glow)"><path d="M0 900 Q400 500 700 800 T1600 200" fill="none" stroke="#a100ff" stroke-width="32"/><path d="M0 250 Q500 600 900 300 T1600 850" fill="none" stroke="#007bff" stroke-width="25"/><path d="M100 1100 Q500 700 1100 1050 T1600 500" fill="none" stroke="#ff8a00" stroke-width="22"/></g>
+<g fill="none" stroke-linecap="round"><path d="M-80 870 Q330 300 730 610 T1600 210" stroke="#a600ff" stroke-width="7"/><path d="M-100 1040 Q400 620 820 920 T1700 650" stroke="#ff8a00" stroke-width="6"/><path d="M0 300 Q440 600 810 250 T1600 400" stroke="#007cff" stroke-width="5"/></g>
+<g filter="url(#shadow)" stroke="#fff" stroke-width="13">
+ <g transform="translate(-85 120) rotate(-13 160 250)"><rect width="310" height="480" rx="35" fill="url(#red)"/><ellipse cx="155" cy="240" rx="100" ry="175" fill="none" stroke-width="8"/><text x="155" y="285" font-family="Arial,sans-serif" font-size="170" font-weight="900" text-anchor="middle" fill="#fff" stroke="#222" stroke-width="4">1</text><text x="28" y="60" font-family="Arial" font-size="45" font-weight="900" fill="#fff" stroke="none">+2</text></g>
+ <g transform="translate(110 420) rotate(-18 140 200)"><rect width="260" height="400" rx="30" fill="url(#blue)"/><ellipse cx="130" cy="200" rx="82" ry="145" fill="none" stroke-width="7"/><text x="130" y="248" font-family="Arial" font-size="145" font-weight="900" text-anchor="middle" fill="#fff" stroke="#222" stroke-width="4">↻</text></g>
+ <g transform="translate(1260 100) rotate(15 140 220)"><rect width="280" height="440" rx="34" fill="url(#green)"/><ellipse cx="140" cy="220" rx="90" ry="160" fill="none" stroke-width="7"/><text x="140" y="270" font-family="Arial" font-size="135" font-weight="900" text-anchor="middle" fill="#fff" stroke="#222" stroke-width="4">↻</text></g>
+ <g transform="translate(1260 650) rotate(17 140 210)"><rect width="280" height="430" rx="34" fill="#11172a"/><ellipse cx="140" cy="215" rx="90" ry="155" fill="none" stroke-width="7"/><g transform="translate(70 155)"><rect width="70" height="70" rx="8" fill="#ef2346"/><rect x="70" width="70" height="70" rx="8" fill="#f6d11c"/><rect y="70" width="70" height="70" rx="8" fill="#087bff"/><rect x="70" y="70" width="70" height="70" rx="8" fill="#13bd65"/></g><text x="24" y="55" font-family="Arial" font-size="45" font-weight="900" fill="#fff" stroke="none">+4</text></g>
+ <g transform="translate(80 800) rotate(-10 125 180)"><rect width="250" height="390" rx="30" fill="url(#yellow)"/><ellipse cx="125" cy="195" rx="80" ry="140" fill="none" stroke-width="7"/><text x="125" y="245" font-family="Arial" font-size="135" font-weight="900" text-anchor="middle" fill="#fff" stroke="#222" stroke-width="4">2</text></g>
+</g>
+<g fill="#fff" opacity=".75"><circle cx="420" cy="130" r="5"/><circle cx="510" cy="220" r="4"/><circle cx="930" cy="180" r="6"/><circle cx="1050" cy="880" r="4"/><circle cx="720" cy="1020" r="5"/><circle cx="390" cy="950" r="3"/><circle cx="1130" cy="390" r="5"/></g>
+</svg>
